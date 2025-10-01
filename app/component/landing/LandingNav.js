@@ -60,6 +60,8 @@ export default function LandingNavbar() {
           </div>
 
           {/* CTA Buttons */}
+          <div>
+
           <div className="hidden md:flex items-center space-x-4">
             <div>
               <button
@@ -83,8 +85,9 @@ export default function LandingNavbar() {
             >
               Dashboard
             </Link>
-          </div>
 
+
+          </div>
           <div className="flex gap-2">
 
            <div className="md:hidden block">
@@ -112,6 +115,8 @@ export default function LandingNavbar() {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           </div>
+          </div>
+
         </div>
         
       </div>
