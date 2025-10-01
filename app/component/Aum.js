@@ -1,21 +1,27 @@
+import axios from "axios";
 import { ChevronDown, Triangle } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Aum() {
-  const aumData = [
-    {
-      id: 1,
-      title: "Current",
-      amount: "12.19",
-      unit: "Cr",
-      change: "+0.77",
-      changeType: "up",
-    },
-  ];
+  const [aum, setAum] = useState([]);
 
+  useEffect(() => {
+    const fetchAUM = async () => {
+      try {
+        const res = await axios.get("/api/aum");
+        // console.log(res?.data);
+        setAum(res?.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAUM()
+  },[]);
+
+  
   return (
     <div className="flex flex-col md:flex-row gap-6 ">
-      {aumData.map((text, id) => (
+      {aum.map((text, id) => (
         <div key={id} className="bg-white w-full py-4 shadow-lg rounded-lg">
           {/* Top right button */}
           <div className="flex justify-end px-4">
@@ -29,7 +35,7 @@ export default function Aum() {
             <div className="flex flex-col items-center">
               <p className="text-sm font-medium text-gray-600">{text.title}</p>
               <h1 className="text-3xl font-bold my-3">
-                AUM <span className="text-red-600">{text.amount}</span>{" "}
+                AUM <span className="text-red-600">{text.value}</span>{" "}
                 <span className="text-base font-normal">{text.unit}</span>
               </h1>
               <span
@@ -41,7 +47,7 @@ export default function Aum() {
                   size={15}
                   className={text?.changeType === "up" ? "" : "rotate-180"}
                 />
-                {text.change} MoM
+                {text.momChange} MoM
               </span>
             </div>
           </div>

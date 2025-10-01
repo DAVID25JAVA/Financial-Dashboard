@@ -1,40 +1,25 @@
 "use client";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function StatsDashboard() {
   const [activeTab, setActiveTab] = useState("3 Days");
-
   const tabs = ["3 Days", "7 Days", "10 Days", "30 Days"];
+  const [stats, setStats] = useState([]);
 
-  const stats = [
-    {
-      icon: <img src="/donation.png" className="w-14 h-14 md:w-20 md:h-20" />,
-      label: "Purchases",
-      value: "0.00 INR",
-    },
-    {
-      icon: <img src="/gift.png" className="w-14 h-14 md:w-20 md:h-20" />,
-      label: "Redemptions",
-      value: "0.00 INR",
-    },
-    {
-      icon: (
-        <img src="/transaction.png" className="w-14 h-14 md:w-20 md:h-20" />
-      ),
-      label: "Rej. Transactions",
-      value: "0.00 INR",
-    },
-    {
-      icon: <img src="/profit.png" className="w-14 h-14 md:w-20 md:h-20" />,
-      label: "SIP Rejections",
-      value: "0.00 INR",
-    },
-    {
-      icon: <img src="/graph.png" className="w-14 h-14 md:w-20 md:h-20" />,
-      label: "New SIP",
-      value: "0.00 INR",
-    },
-  ];
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await axios.get("/api/stats");
+        // console.log(res?.data);
+        setStats(res.data);  
+      } catch (error) {
+        console.error("Error fetching stats:", error?.message);
+      }
+    };
+
+    fetchStats();
+  }, []);
 
   return (
     <div className="bg-white shadow-md rounded-md border p-4 w-full">
@@ -76,7 +61,9 @@ export default function StatsDashboard() {
             className="bg-gray-50 rounded p-3 flex items-center gap-3 shadow-sm"
           >
             {/* Icon */}
-            <div className="flex-shrink-0">{stat.icon}</div>
+            <div className="flex-shrink-0">
+              <img src={stat?.icon} className="w-20 h-20" />
+            </div>
 
             {/* Content */}
             <div className="flex-1">

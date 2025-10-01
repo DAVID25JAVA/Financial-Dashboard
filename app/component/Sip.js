@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDown, Triangle } from "lucide-react";
+import axios from "axios";
 
 export default function Sip() {
+  const [SIP, setSIP] = useState([]);
+
+  useEffect(() => {
+      const fetchAUM = async () => {
+        try {
+          const res = await axios.get("/api/sip");
+          console.log(res?.data);
+          setSIP(res?.data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchAUM()
+    },[]);
+  
+
   const sipData = [
     {
       id: 1,
@@ -16,7 +33,7 @@ export default function Sip() {
 
   return (
     <div className="flex flex-col md:flex-row gap-6">
-      {sipData.map(({ id, title, amount, unit, change, changeType }) => (
+      {SIP.map(({ id, title, value, unit, momChange, changeType }) => (
         <div
           key={id}
           className="bg-white   w-full py-4 shadow-lg rounded-lg"
@@ -33,7 +50,7 @@ export default function Sip() {
             <div className="flex flex-col items-center">
               <p className="text-sm font-medium text-gray-600">{title}</p>
               <h1 className="text-3xl font-bold my-3">
-                AUM <span className="text-red-600">{amount}</span>{" "}
+                SIP <span className="text-red-600">{value}</span>{" "}
                 <span className="text-base font-normal">{unit}</span>
               </h1>
               <span
@@ -45,7 +62,7 @@ export default function Sip() {
                   size={15}
                   className={changeType === "up" ? "" : "rotate-180"}
                 />
-                {change} MoM
+                {momChange} MoM
               </span>
             </div>
           </div>
