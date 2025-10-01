@@ -8,7 +8,7 @@ import StatsDashboard from "../component/StatusUI";
 
 export default function DashboardPage() {
   return (
-    <div className="w-full min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
+    <div className="w-full min-h-screen bg-gray-50 md:p-6 lg:p-8">
       {/* Top Section - AUM and SIP Cards */}
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <div className="w-full">

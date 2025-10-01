@@ -17,10 +17,13 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { menuItems } from "./secondNav/secondNavbar";
+import Link from "next/link";
+ 
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+   
 
   const toggleSubmenu = (index) => {
     setOpenSubmenu(openSubmenu === index ? null : index);
@@ -42,9 +45,11 @@ export default function Navbar() {
       <nav className="bg-white shadow-md h-28 flex items-center justify-between px-4 md:px-6">
         {/* Logo */}
         <div className="flex cursor-pointer items-center justify-center">
-          <h1 className="text-lg md:text-xl font-bold text-blue-700">
+          <Link href="/">
+          <h1  className="text-lg md:text-xl font-bold text-blue-700">
             Wealth <span className="text-green-700">Elite</span>
           </h1>
+          </Link>
         </div>
 
         {/* Search Bar */}
@@ -133,7 +138,7 @@ export default function Navbar() {
           </div>
 
           {/*  Mobile Secondary Nav (SecondNavbar items) */}
-          <div className="border-t bg-orange-500">
+          <div className="border-t bg-orange-500 mb-20">
             <ul className="py-2">
               {menuItems.map((item, idx) => (
                 <li key={idx} className="border-b border-gray-200 last:border-b-0">

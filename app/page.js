@@ -40,7 +40,7 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="md:max-w-7xl mx-auto text-center">
           <div className="inline-block mb-4 px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">
             🎉 New Dashboard v2.0 is here!
           </div>
@@ -56,12 +56,12 @@ export default function LandingPage() {
               href="/dashboard"
               className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              Get Started Free
+               Dashboard
               <ArrowRight className="ml-2" size={20} />
             </Link>
-            <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 border-2 border-orange-600 rounded-lg hover:bg-orange-50 transition-colors font-semibold text-lg">
+            {/* <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 border-2 border-orange-600 rounded-lg hover:bg-orange-50 transition-colors font-semibold text-lg">
               Watch Demo
-            </button>
+            </button> */}
           </div>
           
           {/* Stats */}
@@ -83,7 +83,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-18 bg-white">
+      <section id="features" className="py-20 md:px-18 px-5 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -113,7 +113,7 @@ export default function LandingPage() {
       </section>
 
       {/* About/Benefits Section */}
-      <section id="about" className="py-20 px-18">
+      <section id="about" className="md:py-20 md:px-18 px-5">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -135,7 +135,7 @@ export default function LandingPage() {
             <div className="bg-gradient-to-br from-orange-400 to-amber-500 rounded-2xl h-96 flex items-center justify-center shadow-2xl">
               <div className="text-center text-white p-8">
                 <div className="text-6xl mb-4">📊</div>
-                <p className="text-2xl font-bold">Your Dashboard Preview</p>
+                {/* <p className="text-2xl font-bold">Your Dashboard Preview</p> */}
               </div>
             </div>
           </div>
@@ -143,7 +143,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-18 bg-white">
+      <section className="py-20 md:px-18 px-5 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
