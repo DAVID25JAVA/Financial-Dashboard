@@ -76,13 +76,7 @@ export default function LandingNavbar() {
                 )}
               </button>
             </div>
-            <div>
-              <button
-                value="light"
-                onClick={() => handleMode("light")}
-                className="cursor-pointer"
-              ></button>
-            </div>
+            
             <Link
               href="/dashboard"
               className="px-6 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium shadow-lg hover:shadow-xl"
@@ -91,6 +85,25 @@ export default function LandingNavbar() {
             </Link>
           </div>
 
+          <div className="flex gap-2">
+
+           <div className="md:hidden block">
+              <button
+                value="dark"
+                onClick={() =>
+                  mode == "dark" ? handleMode("light") : handleMode("dark")
+                }
+                className="cursor-pointer"
+              >
+                {mode == "dark" ? (
+                  <Star className="text-orange-500 w-8 h-10" />
+                ) : (
+                  <MoonStar className="text-orange-500 w-8 h-10" />
+                )}
+              </button>
+            </div>
+
+           
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -98,7 +111,9 @@ export default function LandingNavbar() {
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
+          </div>
         </div>
+        
       </div>
 
       {/* Mobile Menu */}
