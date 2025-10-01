@@ -83,7 +83,7 @@ export function StatsDocument({ stats }) {
             {row.map((stat, i) => (
               <View key={i} style={styles.statBox}>
                 <View style={styles.iconContainer}>
-                  <Image src={stat.icon} style={styles.icon} />
+                  <Image src={stat.icon} style={styles.icon} alt="Company Logo" width={40} height={40} />
                 </View>
                 <View style={styles.content}>
                   <Text style={styles.label}>{stat.label}</Text>

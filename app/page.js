@@ -190,7 +190,7 @@ export default function LandingPage() {
                 className="p-6 rounded-xl bg-white shadow-lg dark:bg-gray-800"
               >
                 <p className="text-gray-600 mb-4 dark:text-gray-300">
-                  "{testimonial.text}"
+                  {testimonial.text}
                 </p>
                 <div className="font-semibold text-gray-900 dark:text-white">
                   {testimonial.name}
